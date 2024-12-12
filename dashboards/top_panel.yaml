@@ -1,0 +1,43 @@
+side_temperature:
+  widget_type: sensor
+  title: Temperature
+  units: "&deg;C"
+  precision: 0
+  entity: sensor.side_temp_corrected
+
+weather:
+  widget_type: weather
+  units: "&deg;C"
+
+upstairs_humidity:
+  widget_type: gauge
+  title: Humidity
+  max: 100
+  min: 0
+  units: "%"
+  entity: sensor.upstairs_humidity
+
+david_presence:
+  widget_type: device_tracker
+  title: David
+  device: david_s_iphone
+  enable: 1
+#    icon_on: fa-male
+#    icon_off: fa-male
+#    icon_style_active: "color: #4bcdea"
+
+entrance_motion:
+  widget_type: binary_sensor
+  title: Entrance
+  entity: binary_sensor.entrance_hall_movement_sensor_occupancy
+
+alarm:
+  widget_type: alarm
+  entity: alarm_control_panel.home
+  title: Alarm
+  state_style: "font-size: 250%;"
+  title_style: "color: white"
+
+layout:
+  - clock.clock(2x1), weather(2x2), david_presence
+  - alarm(2x1), entrance_motion, upstairs_humidity
